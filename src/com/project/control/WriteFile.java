@@ -6,6 +6,8 @@ import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.project.model.Product;
+
 public class WriteFile {
 
 	PrintWriter writer = null;
@@ -31,9 +33,5 @@ public class WriteFile {
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 		}
-	}
-
-	public static void main(String[] args) {
-		
 	}
 }

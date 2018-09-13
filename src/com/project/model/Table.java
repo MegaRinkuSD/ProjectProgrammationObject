@@ -57,4 +57,10 @@ public class Table extends Product {
 				+ sizeHight + ", noRef=" + getNoRef() + ", mark=" + getMark() + ", model=" + getModel() + ", price="
 				+ getPrice() + ", stock=" + getStock() + "]";
 	}
+
+	@Override
+	public String toFile() {
+		return weightMax + ";" + sizeLarge + ";" + sizeWide + ";" + sizeHight + ";" + getNoRef() + ";" + getMark() + ";"
+				+ getModel() + ";" + getPrice() + ";" + getStock() + ";";
+	}
 }

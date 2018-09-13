@@ -25,4 +25,9 @@ public class Mattress extends Bed {
 	public String toString() {
 		return "Mattress [inflatableTime=" + inflatableTime + ", noRef=" + getNoRef() + ", mark=" + getMark() + ", model=" + getModel() + ", price=" + getPrice() + ", stock=" + getStock() + "]";
 	}
+	
+	@Override
+	public String toFile() {
+		return inflatableTime + ";" + getNoRef() + ";" + getMark() + ";" + getModel() + ";" + getPrice() + ";" + getStock() + ";";
+	}
 }

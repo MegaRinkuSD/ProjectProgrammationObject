@@ -57,4 +57,10 @@ public class Bed extends Product {
 				+ maxWeight + ", noRef=" + getNoRef() + ", mark=" + getMark() + ", model=" + getModel() + ", price="
 				+ getPrice() + ", stock=" + getStock() + "]";
 	}
+
+	@Override
+	public String toFile() {
+		return sizeLarge + ";" + sizeWide + ";" + sizeHight + ";" + maxWeight + ";" + getNoRef() + ";"
+				+ getMark() + ";" + getModel() + ";" + getPrice() + ";" + getStock() + ";";
+	}
 }

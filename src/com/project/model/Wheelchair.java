@@ -1,6 +1,6 @@
 package com.project.model;
 
-public class Wheelchair extends Product{
+public class Wheelchair extends Product {
 
 	private double widthChair;
 	private double weight;
@@ -33,7 +33,13 @@ public class Wheelchair extends Product{
 
 	@Override
 	public String toString() {
-		return "Wheelchair [widthChair=" + widthChair + ", weight=" + weight + ", noRef=" + getNoRef() + ", mark=" + getMark() + ", model=" + getModel() + ", price="
-				+ getPrice() + ", stock=" + getStock() + "]";
+		return "Wheelchair [widthChair=" + widthChair + ", weight=" + weight + ", noRef=" + getNoRef() + ", mark="
+				+ getMark() + ", model=" + getModel() + ", price=" + getPrice() + ", stock=" + getStock() + "]";
+	}
+
+	@Override
+	public String toFile() {
+		return widthChair + ";" + weight + ";" + getNoRef() + ";" + getMark() + ";" + getModel() + ";" + getPrice()
+				+ ";" + getStock() + ";";
 	}
 }

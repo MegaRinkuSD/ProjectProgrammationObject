@@ -57,4 +57,9 @@ public class Product {
 		return "Product [noRef=" + noRef + ", mark=" + mark + ", model=" + model + ", price=" + price + ", stock="
 				+ stock + "]";
 	}
+	
+	public String toFile() {
+		return noRef + ";" + mark + ";" + model + ";" + price + ";"
+				+ stock + ";";
+	}
 }

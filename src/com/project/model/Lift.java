@@ -1,10 +1,10 @@
 package com.project.model;
 
-public class Lift extends Product{
+public class Lift extends Product {
 
 	private double raisingCap;
 	private double spinCap;
-	
+
 	public Lift() {
 		super();
 	}
@@ -33,7 +33,13 @@ public class Lift extends Product{
 
 	@Override
 	public String toString() {
-		return "Lift [raisingCap=" + raisingCap + ", spinCap=" + spinCap + ", noRef=" + getNoRef() + ", mark=" + getMark() + ", model=" + getModel() + ", price="
-				+ getPrice() + ", stock=" + getStock() + "]";
+		return "Lift [raisingCap=" + raisingCap + ", spinCap=" + spinCap + ", noRef=" + getNoRef() + ", mark="
+				+ getMark() + ", model=" + getModel() + ", price=" + getPrice() + ", stock=" + getStock() + "]";
+	}
+
+	@Override
+	public String toFile() {
+		return raisingCap + ";" + spinCap + ";" + getNoRef() + ";" + getMark() + ";" + getModel() + ";" + getPrice()
+				+ ";" + getStock() + ";";
 	}
 }

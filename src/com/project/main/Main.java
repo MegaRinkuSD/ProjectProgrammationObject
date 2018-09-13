@@ -7,6 +7,6 @@ public class Main {
 
 	public static void main(String[] args) {
 		new Instances().createInstances();
-		new InitProgram().init();
+//		new InitProgram().init();
 	}
 }
