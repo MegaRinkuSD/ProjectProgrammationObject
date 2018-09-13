@@ -2,6 +2,7 @@ package com.project.model;
 
 public class Product {
 
+	private String typeProduct;
 	private int noRef;
 	private String mark;
 	private String model;
@@ -10,6 +11,14 @@ public class Product {
 
 	public Product() {
 
+	}
+
+	public String getTypeProduct() {
+		return typeProduct;
+	}
+
+	public void setTypeProduct(String typeProduct) {
+		this.typeProduct = typeProduct;
 	}
 
 	public int getNoRef() {
@@ -57,9 +66,8 @@ public class Product {
 		return "Product [noRef=" + noRef + ", mark=" + mark + ", model=" + model + ", price=" + price + ", stock="
 				+ stock + "]";
 	}
-	
+
 	public String toFile() {
-		return noRef + ";" + mark + ";" + model + ";" + price + ";"
-				+ stock + ";";
+		return noRef + ";" + mark + ";" + model + ";" + price + ";" + stock + ";";
 	}
 }

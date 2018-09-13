@@ -39,7 +39,7 @@ public class Lift extends Product {
 
 	@Override
 	public String toFile() {
-		return raisingCap + ";" + spinCap + ";" + getNoRef() + ";" + getMark() + ";" + getModel() + ";" + getPrice()
-				+ ";" + getStock() + ";";
+		return getNoRef() + ";" + getMark() + ";" + getModel() + ";" + getPrice() + ";" + getStock() + ";" + raisingCap
+				+ ";" + spinCap + ";\n";
 	}
 }

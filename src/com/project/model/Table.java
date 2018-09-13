@@ -60,7 +60,7 @@ public class Table extends Product {
 
 	@Override
 	public String toFile() {
-		return weightMax + ";" + sizeLarge + ";" + sizeWide + ";" + sizeHight + ";" + getNoRef() + ";" + getMark() + ";"
-				+ getModel() + ";" + getPrice() + ";" + getStock() + ";";
+		return getNoRef() + ";" + getMark() + ";" + getModel() + ";" + getPrice() + ";" + getStock() + ";" + weightMax
+				+ ";" + sizeLarge + ";" + sizeWide + ";" + sizeHight + ";\n";
 	}
 }

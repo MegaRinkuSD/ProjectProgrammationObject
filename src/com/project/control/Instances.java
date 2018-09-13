@@ -13,7 +13,7 @@ public class Instances {
 		createFileProducts();
 		createFileDay();
 	}
-	
+
 	public void createFolders() {
 		File folderProduct = new File("..//Product");
 		File folderBook = new File("..//Book");
@@ -36,7 +36,7 @@ public class Instances {
 	public void createFileProducts() {
 		BufferedWriter writer = null;
 		File productLits = new File("..//Product//Lit.txt");
-		File productMatelas = new File("..//Product//Matela.txt");
+		File productMatelas = new File("..//Product//Matelas.txt");
 		File productSouleve = new File("..//Product//Souleve.txt");
 		File productFauteuils = new File("..//Product//Fauteuil.txt");
 		File productAlite = new File("..//Product//Alite.txt");

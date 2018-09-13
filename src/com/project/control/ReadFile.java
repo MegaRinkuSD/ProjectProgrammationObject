@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.StringTokenizer;
 
 import com.project.model.Book;
+import com.project.model.Product;
 
 public class ReadFile {
 
@@ -47,12 +48,124 @@ public class ReadFile {
 		return books;
 	}
 
+	public ArrayList<Product> readProducts() {
+		File fileToRead = null;
+		BufferedReader br = null;
+		String line = null;
+
+		ArrayList<Product> products = new ArrayList<>();
+
+		try {
+			fileToRead = new File("..//Product//Alite.txt");
+
+			br = new BufferedReader(new FileReader(fileToRead));
+
+			line = br.readLine();
+
+			while (line != null) {
+				StringTokenizer st = new StringTokenizer(line, ";");
+				Product product = new Product();
+				product.setTypeProduct(st.nextToken());
+				product.setNoRef(Integer.parseInt(st.nextToken()));
+				product.setMark(st.nextToken());
+				product.setModel(st.nextToken());
+				product.setPrice(Double.parseDouble(st.nextToken()));
+				product.setStock(Integer.parseInt(st.nextToken()));
+				products.add(product);
+				line = br.readLine();
+			}
+			br.close();
+
+			fileToRead = new File("..//Product//Fauteuil.txt");
+
+			br = new BufferedReader(new FileReader(fileToRead));
+
+			line = br.readLine();
+
+			while (line != null) {
+				StringTokenizer st = new StringTokenizer(line, ";");
+				Product product = new Product();
+				product.setTypeProduct(st.nextToken());
+				product.setNoRef(Integer.parseInt(st.nextToken()));
+				product.setMark(st.nextToken());
+				product.setModel(st.nextToken());
+				product.setPrice(Double.parseDouble(st.nextToken()));
+				product.setStock(Integer.parseInt(st.nextToken()));
+				products.add(product);
+				line = br.readLine();
+			}
+			br.close();
+
+			fileToRead = new File("..//Product//Lit.txt");
+
+			br = new BufferedReader(new FileReader(fileToRead));
+
+			line = br.readLine();
+
+			while (line != null) {
+				StringTokenizer st = new StringTokenizer(line, ";");
+				Product product = new Product();
+				product.setTypeProduct(st.nextToken());
+				product.setNoRef(Integer.parseInt(st.nextToken()));
+				product.setMark(st.nextToken());
+				product.setModel(st.nextToken());
+				product.setPrice(Double.parseDouble(st.nextToken()));
+				product.setStock(Integer.parseInt(st.nextToken()));
+				products.add(product);
+				line = br.readLine();
+			}
+			br.close();
+			fileToRead = new File("..//Product//Matelas.txt");
+
+			br = new BufferedReader(new FileReader(fileToRead));
+
+			line = br.readLine();
+
+			while (line != null) {
+				StringTokenizer st = new StringTokenizer(line, ";");
+				Product product = new Product();
+				product.setTypeProduct(st.nextToken());
+				product.setNoRef(Integer.parseInt(st.nextToken()));
+				product.setMark(st.nextToken());
+				product.setModel(st.nextToken());
+				product.setPrice(Double.parseDouble(st.nextToken()));
+				product.setStock(Integer.parseInt(st.nextToken()));
+				products.add(product);
+				line = br.readLine();
+			}
+			br.close();
+			fileToRead = new File("..//Product//Souleve.txt");
+
+			br = new BufferedReader(new FileReader(fileToRead));
+
+			line = br.readLine();
+
+			while (line != null) {
+				StringTokenizer st = new StringTokenizer(line, ";");
+				Product product = new Product();
+				product.setTypeProduct(st.nextToken());
+				product.setNoRef(Integer.parseInt(st.nextToken()));
+				product.setMark(st.nextToken());
+				product.setModel(st.nextToken());
+				product.setPrice(Double.parseDouble(st.nextToken()));
+				product.setStock(Integer.parseInt(st.nextToken()));
+				products.add(product);
+				line = br.readLine();
+			}
+			br.close();
+			
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
+		return products;
+	}
+
 	public static void main(String[] args) {
 		double montant = 0;
-		ArrayList<Book> books = new ReadFile().readBook();
+		ArrayList<Product> books = new ReadFile().readProducts();
 		for (int i = 0; i < books.size(); i++) {
-			montant += books.get(i).getMontant();
+			System.out.println(books.get(i).getTypeProduct());
 		}
-		System.out.println(montant);
+		
 	}
 }

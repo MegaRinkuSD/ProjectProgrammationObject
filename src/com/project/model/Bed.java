@@ -60,7 +60,7 @@ public class Bed extends Product {
 
 	@Override
 	public String toFile() {
-		return sizeLarge + ";" + sizeWide + ";" + sizeHight + ";" + maxWeight + ";" + getNoRef() + ";"
-				+ getMark() + ";" + getModel() + ";" + getPrice() + ";" + getStock() + ";";
+		return getNoRef() + ";" + getMark() + ";" + getModel() + ";" + getPrice() + ";" + getStock() + ";" + sizeLarge
+				+ ";" + sizeWide + ";" + sizeHight + ";" + maxWeight + ";\n";
 	}
 }

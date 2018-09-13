@@ -23,11 +23,13 @@ public class Mattress extends Bed {
 
 	@Override
 	public String toString() {
-		return "Mattress [inflatableTime=" + inflatableTime + ", noRef=" + getNoRef() + ", mark=" + getMark() + ", model=" + getModel() + ", price=" + getPrice() + ", stock=" + getStock() + "]";
+		return "Mattress [inflatableTime=" + inflatableTime + ", noRef=" + getNoRef() + ", mark=" + getMark()
+				+ ", model=" + getModel() + ", price=" + getPrice() + ", stock=" + getStock() + "]";
 	}
-	
+
 	@Override
 	public String toFile() {
-		return inflatableTime + ";" + getNoRef() + ";" + getMark() + ";" + getModel() + ";" + getPrice() + ";" + getStock() + ";";
+		return getNoRef() + ";" + getMark() + ";" + getModel() + ";" + getPrice() + ";" + getStock() + ";"
+				+ inflatableTime + ";\n";
 	}
 }

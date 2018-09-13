@@ -39,7 +39,7 @@ public class Wheelchair extends Product {
 
 	@Override
 	public String toFile() {
-		return widthChair + ";" + weight + ";" + getNoRef() + ";" + getMark() + ";" + getModel() + ";" + getPrice()
-				+ ";" + getStock() + ";";
+		return getNoRef() + ";" + getMark() + ";" + getModel() + ";" + getPrice() + ";" + getStock() + ";" + widthChair
+				+ ";" + weight + ";\n";
 	}
 }
