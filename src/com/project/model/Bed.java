@@ -11,6 +11,14 @@ public class Bed extends Product {
 		super();
 	}
 
+	public Bed(double sizeLarge, double sizeWide, double sizeHight, double maxWeight) {
+		super();
+		this.sizeLarge = sizeLarge;
+		this.sizeWide = sizeWide;
+		this.sizeHight = sizeHight;
+		this.maxWeight = maxWeight;
+	}
+
 	public double getSizeLarge() {
 		return sizeLarge;
 	}
@@ -43,4 +51,10 @@ public class Bed extends Product {
 		this.sizeWide = sizeWide;
 	}
 
+	@Override
+	public String toString() {
+		return "Bed [sizeLarge=" + sizeLarge + ", sizeWide=" + sizeWide + ", sizeHight=" + sizeHight + ", maxWeight="
+				+ maxWeight + ", noRef=" + getNoRef() + ", mark=" + getMark() + ", model=" + getModel() + ", price="
+				+ getPrice() + ", stock=" + getStock() + "]";
+	}
 }

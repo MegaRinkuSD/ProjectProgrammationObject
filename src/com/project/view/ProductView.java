@@ -59,6 +59,7 @@ public class ProductView {
 		frame.setLocationRelativeTo(null);
 		
 		content = new JPanel();
+		content.setSize(800, 600);
 		
 		jcbmProducts = new DefaultComboBoxModel<>();
 		jcbmProducts.addElement("Lits");

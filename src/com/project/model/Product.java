@@ -9,7 +9,7 @@ public class Product {
 	private int stock;
 
 	public Product() {
-		
+
 	}
 
 	public int getNoRef() {
@@ -50,5 +50,11 @@ public class Product {
 
 	public void setStock(int stock) {
 		this.stock = stock;
+	}
+
+	@Override
+	public String toString() {
+		return "Product [noRef=" + noRef + ", mark=" + mark + ", model=" + model + ", price=" + price + ", stock="
+				+ stock + "]";
 	}
 }
