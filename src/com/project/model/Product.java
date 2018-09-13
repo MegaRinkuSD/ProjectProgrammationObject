@@ -2,7 +2,7 @@ package com.project.model;
 
 public class Product {
 
-	private char noRef;
+	private int noRef;
 	private String mark;
 	private String model;
 	private double price;
@@ -12,11 +12,11 @@ public class Product {
 		
 	}
 
-	public char getNoRef() {
+	public int getNoRef() {
 		return noRef;
 	}
 
-	public void setNoRef(char noRef) {
+	public void setNoRef(int noRef) {
 		this.noRef = noRef;
 	}
 
