@@ -153,5 +153,4 @@ public class RentView extends JFrame {
 		btnAnnuler.setBounds(586, 367, 97, 25);
 		contentPane.add(btnAnnuler);
 	}
-
 }
