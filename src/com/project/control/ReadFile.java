@@ -13,7 +13,7 @@ import com.project.model.Product;
 
 public class ReadFile {
 
-	public ArrayList<Rent> readBook() {
+	public ArrayList<Rent> readRents() {
 		ArrayList<Rent> books = new ArrayList<Rent>();
 		try {
 
@@ -166,6 +166,5 @@ public class ReadFile {
 		for (int i = 0; i < books.size(); i++) {
 			System.out.println(books.get(i).getTypeProduct());
 		}
-		
 	}
 }
