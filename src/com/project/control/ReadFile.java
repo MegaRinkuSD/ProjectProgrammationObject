@@ -8,13 +8,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.StringTokenizer;
 
-import com.project.model.Book;
+import com.project.model.Rent;
 import com.project.model.Product;
 
 public class ReadFile {
 
-	public ArrayList<Book> readBook() {
-		ArrayList<Book> books = new ArrayList<Book>();
+	public ArrayList<Rent> readBook() {
+		ArrayList<Rent> books = new ArrayList<Rent>();
 		try {
 
 			File fileDay = new File("..//Book//" + new SimpleDateFormat("yyyyMM").format(new Date()) + "//"
@@ -26,7 +26,7 @@ public class ReadFile {
 
 			while (line != null) {
 				StringTokenizer st = new StringTokenizer(line, ";");
-				Book book = new Book();
+				Rent book = new Rent();
 				book.setRef(st.nextToken());
 				book.setDebut(st.nextToken());
 				book.setFin(st.nextToken());

@@ -1,29 +1,25 @@
 package com.project.view;
 
+import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
-import javax.swing.ComboBoxModel;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JSpinner;
-import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
-public class ProductView {
+public class ProductView extends JFrame {
 
-	public JFrame frame;
-	public JPanel content;
-	public JButton jbtSaveProduct;
-	public JButton jbtCancel;
-	public JComboBox<String> jcbProducts;
-	public JTextField jtfNoRef;
-	public JTextField jtfBrand;
-	public JTextField jtfModel;
-	public JTextField jtfPrice;
-	public JSpinner jtfStock;
-	private DefaultComboBoxModel<String> jcbmProducts;
+	public JPanel contentPane;
+	public JButton btnGarder;
+	public JButton btnAnnuler;
+	public JComboBox jcbProducts;
 
 	/**
 	 * Launch the application.
@@ -32,8 +28,8 @@ public class ProductView {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ProductView window = new ProductView();
-					window.frame.setVisible(true);
+					ProductView frame = new ProductView();
+					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -42,33 +38,50 @@ public class ProductView {
 	}
 
 	/**
-	 * Create the application.
+	 * Create the frame.
 	 */
 	public ProductView() {
-		initialize();
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 817, 517);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(new GridLayout(1, 0, 0, 0));
+		
+		JPanel panel = new JPanel();
+		contentPane.add(panel);
+		
+		btnGarder = new JButton("Garder");
+		
+		btnAnnuler = new JButton("Annuler");
+		
+		jcbProducts = new JComboBox();
+		GroupLayout gl_panel = new GroupLayout(panel);
+		gl_panel.setHorizontalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING, false)
+						.addGroup(Alignment.LEADING, gl_panel.createSequentialGroup()
+							.addGap(41)
+							.addComponent(jcbProducts, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+						.addGroup(Alignment.LEADING, gl_panel.createSequentialGroup()
+							.addGap(23)
+							.addComponent(btnGarder)
+							.addGap(162)
+							.addComponent(btnAnnuler)))
+					.addContainerGap(456, Short.MAX_VALUE))
+		);
+		gl_panel.setVerticalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
+					.addGap(28)
+					.addComponent(jcbProducts, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED, 290, Short.MAX_VALUE)
+					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(btnGarder)
+						.addComponent(btnAnnuler))
+					.addGap(95))
+		);
+		panel.setLayout(gl_panel);
 	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frame = new JFrame();
-		frame.setSize(800, 600);
-		frame.setTitle("Ajouter un article");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLocationRelativeTo(null);
-		
-		content = new JPanel();
-		content.setSize(800, 600);
-		
-		jcbmProducts = new DefaultComboBoxModel<>();
-		jcbmProducts.addElement("Lits");
-		
-		jcbProducts = new JComboBox<>();
-		jcbProducts.setModel(jcbmProducts);
-		jcbProducts.setBounds(100, 100, 200, 25);
-		content.add(jcbProducts);
-		
-	}
-
 }

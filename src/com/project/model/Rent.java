@@ -1,6 +1,6 @@
 package com.project.model;
 
-public class Book {
+public class Rent {
 
 	private String ref;
 	private String debut;

@@ -13,6 +13,6 @@ public class InitProgram {
 		Product productModel = new Product();
 		ProductView productView = new ProductView();
 		ProductControl init = new ProductControl(productModel, productView);
-		productView.frame.setVisible(true);
+		productView.contentPane.setVisible(true);
 	}
 }

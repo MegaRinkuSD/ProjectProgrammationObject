@@ -20,15 +20,13 @@ public class ProductControl implements ActionListener {
 	public ProductControl(Product productModel, ProductView productView) {
 		this.productModel = productModel;
 		this.productView = productView;
-
-		productView.jbtSaveProduct.addActionListener(this);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource().equals(this.productView.jbtCancel)) {
+		if (e.getSource().equals(this.productView.btnAnnuler)) {
 			cleanView();
-		} else if (e.getSource().equals(this.productView.jbtSaveProduct)) {
+		} else if (e.getSource().equals(this.productView.btnGarder)) {
 
 			String thypeProduct = this.productView.jcbProducts.getSelectedItem().toString();
 
