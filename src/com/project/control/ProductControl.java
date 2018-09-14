@@ -46,13 +46,13 @@ public class ProductControl implements ActionListener {
 				productModel = new Mattress(this.productView.jtfInfatableMattress.getText());
 
 				break;
-			case "Lift":
+			case "Souleve":
 
-				productModel = new Lift(Double.parseDouble(this.productView.jtfRaisingLigt.getText()),
+				productModel = new Lift(Double.parseDouble(this.productView.jtfRaisingLift.getText()),
 						Double.parseDouble(this.productView.jtfSpinLift.getText()));
 
 				break;
-			case "Wheelchair":
+			case "Fauteuil":
 
 				productModel = new Wheelchair(Double.parseDouble(this.productView.jtfWidthChair.getText()),
 						Double.parseDouble(this.productView.jtfWeight.getText()));
