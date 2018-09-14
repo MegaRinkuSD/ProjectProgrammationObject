@@ -23,12 +23,8 @@ public class ProductConsultControl implements ActionListener, WindowListener {
 
 		consultView.addWindowListener(this);
 		consultView.btnRetourner.addActionListener(this);
-		consultView.btnOrderDate.addActionListener(this);
-		consultView.btnOrder
-	}
-
-	public ProductConsultControl() {
-		// TODO Auto-generated constructor stub
+//		consultView.btnOrderDate.addActionListener(this);
+//		consultView.btnOrder
 	}
 
 	@Override
@@ -70,7 +66,7 @@ public class ProductConsultControl implements ActionListener, WindowListener {
 	@Override
 	public void windowOpened(WindowEvent e) {
 		if (e.getSource().equals(this.consultView)) {
-			jtProducts.setModel(setProducts());
+			this.consultView.jtProducts.setModel(setProducts());
 		}
 	}
 
@@ -87,7 +83,7 @@ public class ProductConsultControl implements ActionListener, WindowListener {
 		model.addColumn("Marque");
 		model.addColumn("Modele");
 		model.addColumn("Prix");
-		model.addColumn("Cantit�");
+		model.addColumn("Cantite");
 
 		ArrayList<Product> products = new ReadFile().readProducts();
 
