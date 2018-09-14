@@ -2,6 +2,13 @@ package com.project.control;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.table.DefaultTableModel;
 
 import com.project.model.Bed;
 import com.project.model.Lift;
@@ -11,7 +18,7 @@ import com.project.model.Table;
 import com.project.model.Wheelchair;
 import com.project.view.ProductView;
 
-public class ProductControl implements ActionListener {
+public class ProductControl implements ActionListener, ItemListener, WindowListener {
 
 	private Product productModel;
 	private ProductView productView;
@@ -20,6 +27,11 @@ public class ProductControl implements ActionListener {
 	public ProductControl(Product productModel, ProductView productView) {
 		this.productModel = productModel;
 		this.productView = productView;
+
+		productView.addWindowListener(this);
+		productView.jcbProducts.addItemListener(this);
+		productView.btnGarder.addActionListener(this);
+		productView.btnAnnuler.addActionListener(this);
 	}
 
 	@Override
@@ -75,7 +87,7 @@ public class ProductControl implements ActionListener {
 			productModel.setModel(this.productView.jtfModel.getText());
 			productModel.setPrice(Double.parseDouble(this.productView.jtfPrice.getText()));
 			productModel.setStock(Integer.parseInt(this.productView.jtfStock.getText()));
-			
+
 			WriteFile writeFile = new WriteFile();
 			writeFile.writeProduct(thypeProduct + ";" + productModel.toFile(), thypeProduct);
 		}
@@ -83,5 +95,62 @@ public class ProductControl implements ActionListener {
 
 	public void cleanView() {
 
+	}
+
+	@Override
+	public void itemStateChanged(ItemEvent e) {
+		if(e.getSource().equals(this.productView.jcbProducts))){
+			
+		}
+	}
+
+	@Override
+	public void windowActivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void windowClosed(WindowEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void windowClosing(WindowEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void windowDeactivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void windowIconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void windowOpened(WindowEvent e) {
+		if (e.getSource().equals(this.productView)) {
+			DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+			model.addElement("Lit");
+			model.addElement("Alite");
+			model.addElement("Souleve");
+			model.addElement("Fauteuil");
+			model.addElement("Matelas");
+
+			this.productView.jcbProducts.setModel(model);
+		}
 	}
 }

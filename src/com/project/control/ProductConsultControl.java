@@ -22,6 +22,9 @@ public class ProductConsultControl implements ActionListener, WindowListener {
 		this.productModel = productModel;
 
 		consultView.addWindowListener(this);
+		consultView.btnRetourner.addActionListener(this);
+		consultView.btnOrderDate.addActionListener(this);
+		consultView.btnOrder
 	}
 
 	public ProductConsultControl() {
@@ -82,9 +85,9 @@ public class ProductConsultControl implements ActionListener, WindowListener {
 		model.addColumn("Type");
 		model.addColumn("No. Ref.");
 		model.addColumn("Marque");
-		model.addColumn("Modèle");
+		model.addColumn("Modele");
 		model.addColumn("Prix");
-		model.addColumn("Cantité");
+		model.addColumn("Cantitï¿½");
 
 		ArrayList<Product> products = new ReadFile().readProducts();
 

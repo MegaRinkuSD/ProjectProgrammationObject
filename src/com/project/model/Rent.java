@@ -93,4 +93,14 @@ public class Rent {
 		this.montant = montant;
 	}
 
+	@Override
+	public String toString() {
+		return "Rent [ref=" + ref + ", debut=" + debut + ", fin=" + fin + ", nom=" + nom + ", prenom=" + prenom
+				+ ", tel=" + tel + ", rue=" + rue + ", ville=" + ville + ", bp=" + bp + ", montant=" + montant + "]";
+	}
+
+	public String toFile() {
+		return ref + ";" + debut + ";" + fin + ";" + nom + ";" + prenom + ";" + tel + ";" + rue + ";" + ville + ";" + bp
+				+ ";" + montant + ";";
+	}
 }

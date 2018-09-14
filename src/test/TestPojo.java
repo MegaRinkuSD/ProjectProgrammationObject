@@ -5,6 +5,7 @@ import com.project.model.Bed;
 import com.project.model.Lift;
 import com.project.model.Mattress;
 import com.project.model.Product;
+import com.project.model.Rent;
 import com.project.model.Table;
 import com.project.model.Wheelchair;
 
@@ -48,6 +49,12 @@ public class TestPojo {
 
 			WriteFile writeFile = new WriteFile();
 			writeFile.writeProduct(thypeProduct + ";" + productModel.toFile(), thypeProduct);
+		}
+		
+		for (int i = 0; i < 5; i++) {
+			Rent r = new Rent();
+			r.setRef("5");
+			System.out.println(r.toFile());
 		}
 	}
 }
