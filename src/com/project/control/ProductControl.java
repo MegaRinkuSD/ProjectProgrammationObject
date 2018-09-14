@@ -31,37 +31,53 @@ public class ProductControl implements ActionListener {
 			String thypeProduct = this.productView.jcbProducts.getSelectedItem().toString();
 
 			writeFile = new WriteFile();
+
 			switch (thypeProduct) {
 			case "Lit":
 
-				productModel = new Bed(200, 200, 200, 50);
+				productModel = new Bed(Double.parseDouble(this.productView.jtfLargeBed.getText()),
+						Double.parseDouble(this.productView.jtfWideBed.getText()),
+						Double.parseDouble(this.productView.jtfHightBed.getText()),
+						Double.parseDouble(this.productView.jtfMaxWeightBed.getText()));
 
 				break;
 			case "Matelas":
 
-				productModel = new Mattress(50);
+				productModel = new Mattress(this.productView.jtfInfatableMattress.getText());
 
 				break;
 			case "Lift":
 
-				productModel = new Lift(250.00, 120.99);
+				productModel = new Lift(Double.parseDouble(this.productView.jtfRaisingLigt.getText()),
+						Double.parseDouble(this.productView.jtfSpinLift.getText()));
 
 				break;
 			case "Wheelchair":
 
-				productModel = new Wheelchair(38.00, 13.8);
+				productModel = new Wheelchair(Double.parseDouble(this.productView.jtfWidthChair.getText()),
+						Double.parseDouble(this.productView.jtfWeight.getText()));
 
 				break;
 			case "Table":
 
-				productModel = new Table(120, 50, 50, 50);
+				productModel = new Table(Double.parseDouble(this.productView.jtfWeightMaxTable.getText()),
+						Double.parseDouble(this.productView.jtfLargeTable.getText()),
+						Double.parseDouble(this.productView.jtfWideTable.getText()),
+						Double.parseDouble(this.productView.jtfHightTable.getText()));
 				break;
 			default:
 				productModel = null;
 				break;
 			}
 
-			System.out.println(productModel.toString());
+			productModel.setNoRef(this.productView.jtfNoRef.getText());
+			productModel.setMark(this.productView.jtfMark.getText());
+			productModel.setModel(this.productView.jtfModel.getText());
+			productModel.setPrice(Double.parseDouble(this.productView.jtfPrice.getText()));
+			productModel.setStock(Integer.parseInt(this.productView.jtfStock.getText()));
+			
+			WriteFile writeFile = new WriteFile();
+			writeFile.writeProduct(thypeProduct + ";" + productModel.toFile(), thypeProduct);
 		}
 	}
 
