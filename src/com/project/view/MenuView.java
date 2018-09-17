@@ -89,9 +89,9 @@ public class MenuView {
 		
 		JLabel lblLoyers = new JLabel("Loyers");
 		
-		btnRentCheck = new JButton("Regarder");
+		btnRentCheck = new JButton("Consulter");
 		
-		btnRentInsert = new JButton("Ajouter");
+		btnRentInsert = new JButton("Enregistrer");
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
 		gl_panel_2.setHorizontalGroup(
 			gl_panel_2.createParallelGroup(Alignment.LEADING)
@@ -122,9 +122,9 @@ public class MenuView {
 		
 		JLabel lblProduits = new JLabel("Produits");
 		
-		btnProductCheck = new JButton("Regarder");
+		btnProductCheck = new JButton("Consulter");
 		
-		btnProductInsert = new JButton("Ajouter");
+		btnProductInsert = new JButton("Enregistrer");
 		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
 		gl_panel_1.setHorizontalGroup(
 			gl_panel_1.createParallelGroup(Alignment.LEADING)
