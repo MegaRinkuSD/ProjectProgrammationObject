@@ -23,7 +23,7 @@ public class WriteFile {
 		}
 	}
 
-	public void writeBook(String message) {
+	public void writeRent(String message) {
 		try {
 			File fileDay = new File("..//Book//" + new SimpleDateFormat("yyyyMM").format(new Date()) + "//"
 					+ new SimpleDateFormat("dd").format(new Date()) + ".txt");

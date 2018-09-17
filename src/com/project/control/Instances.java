@@ -8,12 +8,14 @@ import java.util.Date;
 
 public class Instances {
 
+	// On appelle des methodes qui creent des dossiers, fichiers des produits et du jour de louer
 	public void createInstances() {
 		createFolders();
 		createFileProducts();
 		createFileDay();
 	}
 
+	// On cree des dossiers, s'ils ne existent pas le methode les creent
 	public void createFolders() {
 		File folderProduct = new File("..//Product");
 		File folderBook = new File("..//Book");

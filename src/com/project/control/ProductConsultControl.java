@@ -10,6 +10,7 @@ import java.util.Iterator;
 import javax.swing.table.DefaultTableModel;
 
 import com.project.model.Product;
+import com.project.view.MenuView;
 import com.project.view.ProductConsultView;
 
 public class ProductConsultControl implements ActionListener, WindowListener {
@@ -72,12 +73,17 @@ public class ProductConsultControl implements ActionListener, WindowListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-
+		if(e.getSource().equals(this.consultView.btnRetourner)) {
+			this.consultView.dispose();
+			MenuView menuView = new MenuView();
+			MenuControl menuControl = new MenuControl(menuView);
+			menuView.frame.setVisible(true);
+		}
 	}
 
 	public DefaultTableModel setProducts() {
 		DefaultTableModel model = new DefaultTableModel();
+		
 		model.addColumn("Type");
 		model.addColumn("No. Ref.");
 		model.addColumn("Marque");

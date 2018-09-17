@@ -67,24 +67,23 @@ public class ProductConsultView extends JFrame {
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
+					.addContainerGap()
 					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_panel.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(jtProducts, GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE)
+							.addComponent(jtProducts, GroupLayout.DEFAULT_SIZE, 655, Short.MAX_VALUE)
 							.addGap(8))
-						.addGroup(gl_panel.createSequentialGroup()
-							.addGap(131)
-							.addComponent(btnRetourner)))
-					.addContainerGap())
+						.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
+							.addComponent(btnRetourner)
+							.addGap(41))))
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(jtProducts, GroupLayout.PREFERRED_SIZE, 191, GroupLayout.PREFERRED_SIZE)
-					.addGap(65)
+					.addPreferredGap(ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
 					.addComponent(btnRetourner)
-					.addContainerGap(98, Short.MAX_VALUE))
+					.addGap(23))
 		);
 		panel.setLayout(gl_panel);
 		contentPane.setLayout(gl_contentPane);

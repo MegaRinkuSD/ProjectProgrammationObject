@@ -16,13 +16,13 @@ import com.project.model.Mattress;
 import com.project.model.Product;
 import com.project.model.Table;
 import com.project.model.Wheelchair;
+import com.project.view.MenuView;
 import com.project.view.ProductView;
 
 public class ProductControl implements ActionListener, ItemListener, WindowListener {
 
 	private Product productModel;
 	private ProductView productView;
-	private WriteFile writeFile;
 
 	public ProductControl(Product productModel, ProductView productView) {
 		this.productModel = productModel;
@@ -32,6 +32,7 @@ public class ProductControl implements ActionListener, ItemListener, WindowListe
 		productView.jcbProducts.addItemListener(this);
 		productView.btnGarder.addActionListener(this);
 		productView.btnAnnuler.addActionListener(this);
+		productView.btnRetourner.addActionListener(this);
 	}
 
 	@Override
@@ -41,8 +42,6 @@ public class ProductControl implements ActionListener, ItemListener, WindowListe
 		} else if (e.getSource().equals(this.productView.btnGarder)) {
 
 			String thypeProduct = this.productView.jcbProducts.getSelectedItem().toString();
-
-			writeFile = new WriteFile();
 
 			switch (thypeProduct) {
 			case "Lit":
@@ -55,7 +54,7 @@ public class ProductControl implements ActionListener, ItemListener, WindowListe
 				break;
 			case "Matelas":
 
-				productModel = new Mattress(this.productView.jtfInfatableMattress.getText());
+				productModel = new Mattress(Integer.parseInt(this.productView.jtfInfatableMattress.getText()));
 
 				break;
 			case "Souleve":
@@ -82,7 +81,7 @@ public class ProductControl implements ActionListener, ItemListener, WindowListe
 				break;
 			}
 
-			productModel.setNoRef(this.productView.jtfNoRef.getText());
+			productModel.setNoRef(Integer.parseInt(this.productView.jtfNoRef.getText()));
 			productModel.setMark(this.productView.jtfMark.getText());
 			productModel.setModel(this.productView.jtfModel.getText());
 			productModel.setPrice(Double.parseDouble(this.productView.jtfPrice.getText()));
@@ -90,6 +89,11 @@ public class ProductControl implements ActionListener, ItemListener, WindowListe
 
 			WriteFile writeFile = new WriteFile();
 			writeFile.writeProduct(thypeProduct + ";" + productModel.toFile(), thypeProduct);
+		} else if(e.getSource().equals(this.productView.btnRetourner)) {
+			MenuView menuView = new MenuView();
+			MenuControl menuControl = new MenuControl(menuView);
+			menuView.frame.setVisible(true);
+			this.productView.dispose();
 		}
 	}
 
@@ -99,8 +103,42 @@ public class ProductControl implements ActionListener, ItemListener, WindowListe
 
 	@Override
 	public void itemStateChanged(ItemEvent e) {
-		if(e.getSource().equals(this.productView.jcbProducts))){
-			
+		if(e.getSource().equals(this.productView.jcbProducts)){
+			String typeProd = this.productView.jcbProducts.getSelectedItem().toString();
+			switch (typeProd) {
+			case "Lit":
+				this.productView.panel.removeAll();
+				this.productView.panel.add(this.productView.jpBed);
+				this.productView.panel.repaint();
+				this.productView.panel.revalidate();
+				break;
+			case "Matelas":
+				this.productView.panel.removeAll();
+				this.productView.panel.add(this.productView.jpMatress);
+				this.productView.panel.repaint();
+				this.productView.panel.revalidate();
+				break;
+			case "Souleve":
+				this.productView.panel.removeAll();
+				this.productView.panel.add(this.productView.jpLift);
+				this.productView.panel.repaint();
+				this.productView.panel.revalidate();
+				break;
+			case "Fauteuil":
+				this.productView.panel.removeAll();
+				this.productView.panel.add(this.productView.jpWheelchair);
+				this.productView.panel.repaint();
+				this.productView.panel.revalidate();
+				break;
+			case "Table":
+				this.productView.panel.removeAll();
+				this.productView.panel.add(this.productView.jpTable);
+				this.productView.panel.repaint();
+				this.productView.panel.revalidate();
+				break;
+			default:
+				break;
+			}
 		}
 	}
 

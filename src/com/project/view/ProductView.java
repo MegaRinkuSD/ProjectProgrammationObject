@@ -14,47 +14,49 @@ import javax.swing.JButton;
 
 public class ProductView extends JFrame {
 
-	private JPanel contentPane;
-	private JTextField jtfNoRef;
-	private JTextField jtfModel;
-	private JTextField jtfMark;
-	private JTextField jtfPrice;
-	private JTextField jtfStock;
-	private JLabel lblEnStock;
-	private JPanel panel;
-	private JButton btnAnnuler;
-	private JButton btnGarder;
-	private JPanel jpBed;
-	private JTextField jtfWideBed;
-	private JLabel label1;
-	private JLabel lblLargeur;
-	private JTextField jtfLargeBed;
-	private JTextField jtfMaxWeightBed;
-	private JLabel lblMaxPoids;
-	private JLabel lblHautese;
-	private JTextField jtfHightBed;
-	private JPanel jpTable;
-	private JTextField jtfWeightMaxTable;
-	private JLabel label;
-	private JLabel label_1;
-	private JTextField jtfHightTable;
-	private JTextField jtfLargeTable;
-	private JTextField jtfWideTable;
-	private JLabel label_2;
-	private JLabel label_3;
-	private JPanel jpMatress;
-	private JTextField jtfInfatableMattress;
-	private JLabel lblTempsGonflage;
-	private JPanel jpLift;
-	private JTextField jtfRaisingLift;
-	private JTextField jtfSpinLift;
-	private JLabel lblDegrDePivotage;
-	private JLabel lblPoidsMax;
-	private JPanel jpWheelchair;
-	private JTextField jtfWeight;
-	private JLabel lblPoids;
-	private JLabel lblLaergeurDassise;
-	private JTextField jtfWidthChair;
+	public JPanel contentPane;
+	public JTextField jtfNoRef;
+	public JTextField jtfModel;
+	public JTextField jtfMark;
+	public JTextField jtfPrice;
+	public JTextField jtfStock;
+	public JLabel lblEnStock;
+	public JPanel panel;
+	public JButton btnAnnuler;
+	public JButton btnGarder;
+	public JPanel jpBed;
+	public JTextField jtfWideBed;
+	public JLabel label1;
+	public JLabel lblLargeur;
+	public JTextField jtfLargeBed;
+	public JTextField jtfMaxWeightBed;
+	public JLabel lblMaxPoids;
+	public JLabel lblHautese;
+	public JTextField jtfHightBed;
+	public JPanel jpTable;
+	public JTextField jtfWeightMaxTable;
+	public JLabel label;
+	public JLabel label_1;
+	public JTextField jtfHightTable;
+	public JTextField jtfLargeTable;
+	public JTextField jtfWideTable;
+	public JLabel label_2;
+	public JLabel label_3;
+	public JPanel jpMatress;
+	public JTextField jtfInfatableMattress;
+	public JLabel lblTempsGonflage;
+	public JPanel jpLift;
+	public JTextField jtfRaisingLift;
+	public JTextField jtfSpinLift;
+	public JLabel lblDegrDePivotage;
+	public JLabel lblPoidsMax;
+	public JPanel jpWheelchair;
+	public JTextField jtfWeight;
+	public JLabel lblPoids;
+	public JLabel lblLaergeurDassise;
+	public JTextField jtfWidthChair;
+	public JComboBox jcbProducts;
+	public JButton btnRetourner;
 
 	/**
 	 * Launch the application.
@@ -83,7 +85,7 @@ public class ProductView extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JComboBox jcbProducts = new JComboBox();
+		jcbProducts = new JComboBox();
 		jcbProducts.setBounds(12, 13, 344, 22);
 		contentPane.add(jcbProducts);
 		
@@ -275,12 +277,16 @@ public class ProductView extends JFrame {
 		jpWheelchair.add(jtfWidthChair);
 		
 		btnAnnuler = new JButton("Annuler");
-		btnAnnuler.setBounds(698, 499, 97, 25);
+		btnAnnuler.setBounds(588, 499, 97, 25);
 		contentPane.add(btnAnnuler);
 		
 		btnGarder = new JButton("Garder");
-		btnGarder.setBounds(589, 499, 97, 25);
+		btnGarder.setBounds(479, 499, 97, 25);
 		contentPane.add(btnGarder);
+		
+		btnRetourner = new JButton("Retourner");
+		btnRetourner.setBounds(697, 499, 97, 25);
+		contentPane.add(btnRetourner);
 	}
 
 }

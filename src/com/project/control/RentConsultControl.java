@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 import com.project.model.Rent;
+import com.project.view.MenuView;
 import com.project.view.RentConsultView;
 
 public class RentConsultControl implements ActionListener, WindowListener {
@@ -21,7 +22,7 @@ public class RentConsultControl implements ActionListener, WindowListener {
 		this.rentConsultView = rentConsultView;
 
 		rentConsultView.addWindowListener(this);
-
+		rentConsultView.btnRetourner.addActionListener(this);
 	}
 
 	@Override
@@ -69,31 +70,40 @@ public class RentConsultControl implements ActionListener, WindowListener {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-
+		if (arg0.getSource().equals(this.rentConsultView.btnRetourner)) {
+			MenuView menuView = new MenuView();
+			MenuControl menuControl = new MenuControl(menuView);
+			menuView.frame.setVisible(true);
+			this.rentConsultView.dispose();
+		}
 	}
 
 	public DefaultTableModel findAllRents() {
 		DefaultTableModel model = new DefaultTableModel();
-		model.addColumn("No. Ref");
-		model.addColumn("Nom client");
-		model.addColumn("Adresse");
-		model.addColumn("Tel.");
-		model.addColumn("Debut");
-		model.addColumn("Fin");
-		model.addColumn("Total paye");
 
 		ArrayList<Rent> rents = new ReadFile().readRents();
-		for (int i = 0; i < rents.size(); i++) {
-			Object[] info = new Object[7];
-			info[0] = rents.get(i).getRef();
-			info[1] = rents.get(i).getPrenom() + " " + rents.get(i).getNom();
-			info[2] = rents.get(i).getRue() + " " + rents.get(i).getVille() + " " + rents.get(i).getBp();
-			info[3] = rents.get(i).getTel();
-			info[4] = rents.get(i).getDebut();
-			info[5] = rents.get(i).getFin();
-			info[6] = rents.get(i).getMontant();
-			model.addRow(info);
+		if (rents.isEmpty()) {
+			model.addColumn("Non information a afficher");
+		} else {
+			model.addColumn("No. Ref");
+			model.addColumn("Nom client");
+			model.addColumn("Adresse");
+			model.addColumn("Tel.");
+			model.addColumn("Debut");
+			model.addColumn("Fin");
+			model.addColumn("Total paye");
+
+			for (int i = 0; i < rents.size(); i++) {
+				Object[] info = new Object[7];
+				info[0] = rents.get(i).getRef();
+				info[1] = rents.get(i).getPrenom() + " " + rents.get(i).getNom();
+				info[2] = rents.get(i).getRue() + " " + rents.get(i).getVille() + " " + rents.get(i).getBp();
+				info[3] = rents.get(i).getTel();
+				info[4] = rents.get(i).getDebut();
+				info[5] = rents.get(i).getFin();
+				info[6] = rents.get(i).getMontant();
+				model.addRow(info);
+			}
 		}
 		return model;
 	}
