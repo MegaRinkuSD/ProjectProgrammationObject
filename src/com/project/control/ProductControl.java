@@ -4,10 +4,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.util.ArrayList;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 import com.project.model.Bed;
@@ -19,7 +23,7 @@ import com.project.model.Wheelchair;
 import com.project.view.MenuView;
 import com.project.view.ProductView;
 
-public class ProductControl implements ActionListener, ItemListener, WindowListener {
+public class ProductControl implements ActionListener, ItemListener, WindowListener, KeyListener {
 
 	private Product productModel;
 	private ProductView productView;
@@ -33,6 +37,10 @@ public class ProductControl implements ActionListener, ItemListener, WindowListe
 		productView.btnGarder.addActionListener(this);
 		productView.btnAnnuler.addActionListener(this);
 		productView.btnRetourner.addActionListener(this);
+		
+		productView.jtfPrice.addKeyListener(this);
+		productView.jtfStock.addKeyListener(this);
+		productView.jtfHightBed.addKeyListener(this);
 	}
 
 	@Override
@@ -189,6 +197,42 @@ public class ProductControl implements ActionListener, ItemListener, WindowListe
 			model.addElement("Matelas");
 
 			this.productView.jcbProducts.setModel(model);
+			
+			productView.jtfNoRef.setText(String.valueOf(getLastRef()));
+			productView.jtfNoRef.setEditable(false);
 		}
+	}
+	
+	public int getLastRef() {
+		int lastRef = 1;
+		ArrayList<Product> products = new ReadFile().readProducts();
+		for (int i = 0; i < products.size(); i++) {
+			if(products.get(i).getNoRef() > lastRef) {
+				lastRef = products.get(i).getNoRef() + 1;
+			}
+		}
+		return lastRef;
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		if(e.getSource().equals(productView.jtfPrice) || e.getSource().equals(productView.jtfStock) || e.getSource().equals(productView.jtfHightBed)) {
+			if(!new Validator().onlyNumbers(e.getKeyChar())) {
+				JOptionPane.showMessageDialog(null, "Seulement nombres", "Non accepte", JOptionPane.WARNING_MESSAGE);
+				e.consume();
+			}
+		}
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
